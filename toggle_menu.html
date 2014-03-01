@@ -1,0 +1,67 @@
+<!--created by andrew orr 3/1/2014-->
+
+
+<!doctype html>
+<html>
+
+
+
+<head>
+<meta charset="UTF-8">
+<title>why's this an Untitled Document</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<meta name="viewport"		content = "width=device-width">
+<style>
+	.clickable:hover{cursor:help;}
+	.menu li{	padding:1em; 	background-color:#eee;	color#444;	border:1px	solid	white;		list-style:none;}
+	.menu a{	color:#444;		text-decoration:none;		display:block;}
+/*	padding is on UL element, this removes it
+*/	
+	.menu ul{	padding:0;		margin:0;	}
+/*	"menu > ul" applies style to only 1st element, NOT nested elements
+*/
+/*	THIS IS THE LINK AT THE TOP OF THE MENU
+*/	.menu-link	{	display:block;		padding:1em;		background-color:#ccc;		color:#fff;		text-decoration:none;	}
+/*	MAKE SUBMENU ITEMS DIFFERENT
+*/	.menu	ul	ul	a{	background-color:#eee;			padding-left:3em;		}
+	.menu,	.menu	ul	ul{max-height:0;		overflow:hidden;		transition:all	0.5	ease-out;		-webkit-transition:all	1s	ease-out;} /*WEBKIT TRANSITIRONS HAVE THEIR OWN THING LIKE MOZ IS MOZILLA BECAUSE HTML5 IS NOT 100% THERE. HTML4 JUST BECAME OFFICIAL.*/
+	
+/*	comma = same style for both classes
+*/</style>
+
+<script>
+	$(document).ready(function(e) {
+		var	$menu	=	$('.menu');
+		var	$menuLink	=	$('.menu-link');
+		
+    });
+</script>
+</head>
+
+
+
+<body>
+
+<a class="		menu-link		" href="#">menu</a>
+<nav class="	menu	">
+    <ul		class-"		clickable		">
+    <li		class="		has-submenu		"><a href="#">Menu item 1</a>
+      <ul>
+        <li><a href="#">Submenu item 1</a></li>
+        <li><a href="#">Submenu item 2</a></li>
+        <li><a href="#">Submenu item 3</a></li>
+        <li><a href="#">Submenu item 4</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Menu item 2</a></li>
+    
+    <li><a href="#">Menu item 3</a></li>
+    
+    <li><a href="#">Menu item 4</a></li>
+    
+    <li><a href="#">Menu item 5</a></li>
+    </ul>
+</nav><!--makes this symantic - tells browsders this is navigation for the page-->
+
+</body>
+</html>
