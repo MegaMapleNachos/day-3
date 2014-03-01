@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width-device-width" /> <!--to scale properly-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+</script>
+
+<style>label{display:block}</style>
+<title>Web FORM</title>
+</head>
+
+<body>
+<form id="form1">
+	<fieldset>
+    	<legend>Participant Info</legend>
+        <label>First      Name
+        <input id="firstName" type="text" placeholder="use ur real name, idiot, this is a legit government site" required pattern="[A-Za-z}" maxlength="8"/> <!--regx is the require info--> 
+        </label><!--do not need for statement in label tag if you wrap all the input fielsds within the label tag-->
+        
+        <label>Last   Name
+        <input id="lastName" type="text" placeholder="use ur real name, idiot, this is a legit government site" required pattern="[A-Za-z}" maxlength="8"/> <!--regx is the require info--> 
+        </label>
+        
+    	<label>DOB
+        <input id="dob" type="date" placeholder="use ur real name, idiot, this is a legit government site" required pattern="[A-Za-z}" maxlength="8" accept="audio/x-mpeg"/> <!--regx is the require info--> 
+        </label>
+        
+        <label>Upload
+        <input id="upload" type="upload" placeholder="use ur real name, idiot, this is a legit government site" required pattern="[A-Za-z}" maxlength="8" accept="audio/x-mpeg"/> <!--regx is the require info--> 
+        </label>
+        
+        <label>phone
+        <input id="phone" type="tel" placeholder="801-555-1234" required pattern="\d{3}-?\d{3}-?\d{4}-?\" maxlength="12"/> <!--regx is the require info--> 
+        </label>
+        
+        <label>Email
+        <input id="email" type="email" placeholder="use ur real name, idiot, this is a legit government site" required pattern="[A-Za-z}" /> <!--regx is the require info--> 
+        </label>
+        
+        <label>Your opinion
+        <input id="opinion" type="text" placeholder="use ur real name, idiot, this is a legit government site" required pattern="[A-Za-z}" maxlength="8"/> <!--regx is the require info--> 
+        </label>
+    <input type="submit" value="Send away my sensitive data!">
+    </fieldset>
+</form>
+<p>Andrew Orr created this Web site in 2014.</p>
+</body>
+</html>

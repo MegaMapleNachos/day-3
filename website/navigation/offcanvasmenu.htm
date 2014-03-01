@@ -1,0 +1,107 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <title>Off Canvas Page Slide / Fly-Out Navigation Example | Responsive Navigation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://responsivenavigation.net/library/css/style.css?v=2" rel="stylesheet">
+    <script src="http://responsivenavigation.net/library/js/modernizr-2.6.2.min.js"></script>
+    <style>
+    * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+    html { background-color: #f4f4f4; }
+    body.active { background-color: #4e4e4e; }
+    .container { max-width: 100%; margin: 0px auto; overflow: hidden; width: 100%; }
+    /*.nav, .main_content { -webkit-transition: .2s all ease; -moz-transition: .2s all ease; transition: .2s all ease; width: 100%; }*/
+	.nav, .main_content { width: 100%; }
+    .menu_container, .footer { clear:both; overflow: hidden; background-color: #fff; }
+    .footer { padding: 0.8em 0; }
+    .menu_container, .anchor-link { display: none; }
+    .menu_container { border-bottom: 1px solid #000; }
+    .anchor-link { font-weight: bold; padding: 1em; text-align: right; text-decoration: none; background-color: #48c9b0; color: #fff; float: right; }
+    .anchor-link:hover { background-color: #ccc; color: #fff; }
+    
+    .nav { width:100%; border-bottom: 1px solid #000; }
+    .nav ul { list-style: none; padding: 0px; margin: 0px; font-weight: bold; text-align: center; }
+    .nav ul li { display: inline-block; text-align: left; }
+    .nav ul li a { display: block; padding: 10px 12px; text-decoration: none; color: #444; }
+    .nav ul li a:hover { background-color: #ccc; }
+    
+    .main_content { padding: 1.5em; position: relative; max-width: 70em; margin: 0 auto; background-color: #f4f4f4; }
+    body.active .main_content:before { content: " "; position: absolute; z-index: -1; top: 0; left: -100%;
+        width: 100%; height: 100%; background-color: #4e4e4e; }
+    h1 { text-align: center;  }
+    
+    p.copyright { text-align: center; }
+    
+    
+    @media (max-width:48.000em){
+        
+        .menu_container, .anchor-link { display: block; }
+        
+        .nav { margin-left: -100%; float: left;}
+        .main_content { margin-left: 0; float: left; }
+        
+        body.active .nav { margin-left: 0; width:60%; }
+        body.active .main_content { margin-right: -100%; }
+        
+        .nav { padding: 0.6em 0; border: none; padding: 0; }
+        .nav ul { text-align: left; font-weight: normal; }
+        .nav ul li { display: block; }
+        .nav ul li a { border-bottom: 1px solid #3E3E3E; border-top: 1px solid #717171; color: #fff; padding: 12px; }
+        .nav ul li a:hover { background-color:#5C5C5C; }
+    }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+	
+	<div class="menu_container">
+		<a id="menu-toggle" class="anchor-link" href="#mobile-nav">MENU</a>
+	</div>
+	
+	<nav id="#mobile-nav" class="nav clearfix" role="navigation">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Collection</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">Directions</a></li>
+		</ul>
+	</nav>
+	
+
+	<section class="main_content" role="main">
+	
+		<h1>The Off Canvas Page Slide</h1>
+		      
+		<p>First of all, let me say that I <strong>used to</strong> love this method. This example is a super simple demonstration of a menu pattern is somewhat derived from how Facebook has popularized the "off-canvas" look on their mobile website and app. Basically, when the browser gets down below a certain breakpoint, the menu disappears and we are presented with a single "menu" button. When this button is clicked, the menu slides out from the left and the main body content moves to the right. This gives the appearance of a menu that is sitting "off canvas" or out of the picture, then it slides in to reveal itself.</p>
+		
+		<p>The main downside to this is that it can't always accommodate a large menu with lots of sub-navigation. But if you have a menu with not too many links, this is definitely a viable option. It also presents the developer with the chore of making sure that however he/she implements this method - that it will work across all browsers.</p>
+		
+		<h3>Javascript</h3>
+		
+		<p>Check out the JS that gives the body a class of "active" when the menu button is clicked:</p>
+		
+		<p>It's pretty straight forward - once the menu button is clicked, we toggle a class of "active" on the body tag. We also prevent the default action of the link going anywhere by adding <code>e.preventDefault();</code>.</p>
+		
+		
+	</section>
+			
+</div><!-- END .container -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+	$('.js #menu-toggle').click(function (e) {
+		$('body').toggleClass('active');
+    });
+});
+</script>
+	
+</body>
+</html>

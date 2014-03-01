@@ -1,0 +1,16 @@
+html { background: #222; }
+body { padding:2em 0; max-width:960px; margin:auto; color: #eee; text-align: center; -webkit-font-smoothing: antialiased; }
+
+/* Callback example */
+
+#wrapper { position:relative; }
+.callbacks .caption { display: block; position: absolute; z-index: 2; font-size: 20px; color: #fff; background: #000;
+	background: rgba(0,0,0, .8); left: 0; right: 0; bottom: 0; padding: 10px 20px; margin: 0; max-width: none; }
+
+.callbacks_nav { position: absolute; color:#888; top: 52%; left:0; opacity: 0.7;
+	z-index: 3; overflow: hidden; text-decoration: none; margin-top: -45px; font-size:4em; }
+
+.callbacks_nav:active { opacity: 1.0; }
+
+.callbacks_nav.next { left: auto; background-position: right top; right: 20px; }
+.callbacks_nav.prev { left:20px; }

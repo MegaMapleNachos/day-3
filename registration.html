@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Untitled Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style type="text/css">
+		.error { background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAeVJREFUeNqkU01oE1EQ/mazSTdRmqSxLVSJVKU9RYoHD8WfHr16kh5EFA8eSy6hXrwUPBSKZ6E9V1CU4tGf0DZWDEQrGkhprRDbCvlpavan3ezu+LLSUnADLZnHwHvzmJlvvpkhZkY7IqFNaTuAfPhhP/8Uo87SGSaDsP27hgYM/lUpy6lHdqsAtM+BPfvqKp3ufYKwcgmWCug6oKmrrG3PoaqngWjdd/922hOBs5C/jJA6x7AiUt8VYVUAVQXXShfIqCYRMZO8/N1N+B8H1sOUwivpSUSVCJ2MAjtVwBAIdv+AQkHQqbOgc+fBvorjyQENDcch16/BtkQdAlC4E6jrYHGgGU18Io3gmhzJuwub6/fQJYNi/YBpCifhbDaAPXFvCBVxXbvfbNGFeN8DkjogWAd8DljV3KRutcEAeHMN/HXZ4p9bhncJHCyhNx52R0Kv/XNuQvYBnM+CP7xddXL5KaJw0TMAF8qjnMvegeK/SLHubhpKDKIrJDlvXoMX3y9xcSMZyBQ+tpyk5hzsa2Ns7LGdfWdbL6fZvHn92d7dgROH/730YBLtiZmEdGPkFnhX4kxmjVe2xgPfCtrRd6GHRtEh9zsL8xVe+pwSzj+OtwvletZZ/wLeKD71L+ZeHHWZ/gowABkp7AwwnEjFAAAAAElFTkSuQmCC) no-repeat 95% center; display:inline-block; vertical-align:middle; }
+		.valid { background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAepJREFUeNrEk79PFEEUx9/uDDd7v/AAQQnEQokmJCRGwc7/QeM/YGVxsZJQYI/EhCChICYmUJigNBSGzobQaI5SaYRw6imne0d2D/bYmZ3dGd+YQKEHYiyc5GUyb3Y+77vfeWNpreFfhvXfAWAAJtbKi7dff1rWK9vPHx3mThP2Iaipk5EzTg8Qmru38H7izmkFHAF4WH1R52654PR0Oamzj2dKxYt/Bbg1OPZuY3d9aU82VGem/5LtnJscLxWzfzRxaWNqWJP0XUadIbSzu5DuvUJpzq7sfYBKsP1GJeLB+PWpt8cCXm4+2+zLXx4guKiLXWA2Nc5ChOuacMEPv20FkT+dIawyenVi5VcAbcigWzXLeNiDRCdwId0LFm5IUMBIBgrp8wOEsFlfeCGm23/zoBZWn9a4C314A1nCoM1OAVccuGyCkPs/P+pIdVIOkG9pIh6YlyqCrwhRKD3GygK9PUBImIQQxRi4b2O+JcCLg8+e8NZiLVEygwCrWpYF0jQJziYU/ho2TUuCPTn8hHcQNuZy1/94sAMOzQHDeqaij7Cd8Dt8CatGhX3iWxgtFW/m29pnUjR7TSQcRCIAVW1FSr6KAVYdi+5Pj8yunviYHq7f72po3Y9dbi7CxzDO1+duzCXH9cEPAQYAhJELY/AqBtwAAAAASUVORK5CYII=) no-repeat 95% center; display:inline-block; vertical-align:middle; }
+		label { display:block; border:1px solid #666; margin-bottom:1em; }
+		label em { display:block; background-color:#eee; border-bottom:1px solid #666; padding:1em; font-style:normal; }
+		input { border-radius:5px; border:2px solid #666; padding:.25em 3em .25em 1em; display:inline-block; margin:.5em 1em; }
+		.ui-state-error { color:red; }
+		input[type="submit"] { padding:.5em 2em; }
+		input[type="color"] { width: 8em; height: 3em; }
+		#zip { max-width:50px; }
+		form { max-width:550px; margin:auto; }
+		legend { font-size:1.5em; }
+		fieldset { border-radius:10px; padding:2em; margin-bottom:2em; }
+			
+		@media screen and (min-width:649px) {
+			.global-nav { float: right; }
+			label { margin-bottom:0; }
+			label em { display:inline-block; width:200px; border:0; border-right:1px solid #666; }
+			.ui-state-error { display:inline; }
+			input { display:inline-block; vertical-align:middle; }
+		}
+    </style>
+</head>
+
+<body>
+<header>
+  <nav class="global-nav-bar"> <a class="secondary-logo" href="index.html"><img src="images/logo-wide-reverse.png" alt="Responsive Web Design World Home"/></a>
+    <div class="toggle-bar"> <a class="mtoggle" href="#"><i class="fa fa-bars"></i></a> </div>
+    <ul class="global-nav">
+      <li><a href="speakers.html">Speakers</a></li>
+      <li><a href="registration.html">Registration</a></li>
+      <li><a href="venue.html">Venue</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+    </ul>
+  </nav>
+</header>
+<section>
+  <div class="row">
+    <div class="small-12">
+      <h1>Registration</h1>
+      <form id="form1" method="get" action="">
+      <fieldset>
+      	<legend>Participant Info</legend>
+        <label> <em>First Name</em>
+          <input id="first-name" data-h5-errorid="invalid-first-name" name="first-name" type="text" required autofocus />
+        </label>
+        <div id="invalid-first-name" class="ui-state-error message" style="display:none;">Please enter your first name.</div>
+        
+        <label> <em>Birthdate</em>
+          <input id="birthdate" data-h5-errorid="invalid-birthdate" name="birthdate" type="date" placeholder="mm/dd/yyyy" required />
+        </label>
+        <div id="invalid-birthdate" class="ui-state-error message" style="display:none;">Please enter your birthdate (mm/dd/yyy).</div>
+        
+        <label> <em>Email Address</em>
+          <input type="email" data-h5-errorid="invalid-email" class="h5-email" required />
+        </label>
+        <div id="invalid-email" class="ui-state-error message" style="display:none;">Please enter a valid email address.</div>
+        
+        <label> <em>Phone</em>
+          <input data-h5-errorid="invalid-phone" id="phone" name="phone" type="tel" placeholder="555-555-5555" pattern="\d{3}-?\d{3}-?\d{4}" required />
+        </label>
+        <div id="invalid-phone" class="ui-state-error message" style="display:none;">Please enter your phone number (•••-•••-••••).</div>
+        
+        <label> <em>Address</em>
+          <input id="address" data-h5-errorid="invalid-address" name="address" type="text" required />
+        </label>
+        <div id="invalid-address" class="ui-state-error message" style="display:none;">Please enter your address.</div>
+        
+        <label> <em>City</em>
+          <input id="city" data-h5-errorid="invalid-city" name="city" type="text" required />
+        </label>
+        <div id="invalid-city" class="ui-state-error message" style="display:none;">Please enter your city.</div>
+        
+        <label> <em>State/Zip</em>
+          <input id="state" data-h5-errorid="invalid-state" name="state" type="text" maxlength="2" size="2" pattern="^[A-Za-z]{2}" required />
+          <input id="zip" data-h5-errorid="invalid-zip" name="zip" type="number" pattern="[0-9]{5}" maxlength="5" size="5" required />
+        </label>
+        <div id="invalid-state" class="ui-state-error message" style="display:none;">Please enter your state.</div>
+        <div id="invalid-zip" class="ui-state-error message" style="display:none;">Please enter your zip code.</div>
+        
+        <label> <em>What is your favorite color?</em>
+          <input type="color" name="color" />
+        </label>
+      </fieldset>
+      
+      <fieldset>
+      	<legend>Payment Info</legend>
+        <label> <em>Credit Card Number</em>
+          <input type="text" data-h5-errorid="invalid-ccn" name="ccn" min="12" maxlength="20" id="ccn" placeholder="•••• •••• •••• ••••" title="Please enter your credit card number" required>
+        </label>
+        <div id="invalid-ccn" class="ui-state-error message" style="display:none;">Please enter your phone number.</div>
+        
+        <label> <em>Card Expiration</em>
+          <input type="text" data-h5-errorid="invalid-exp" id="exp_month" pattern="[0-9]{2}" placeholder="MM" size="2" min="0" max="99" maxlength="2" required>/<input data-h5-errorid="invalid-exp" type="text" id="exp_year" size="4" pattern="[0-9]{4}" placeholder="YYYY" min="0" max="9999" maxlength="4" required>
+        </label>
+        <div id="invalid-exp" class="ui-state-error message" style="display:none;">Please enter your credit card expiration date.</div>
+        </fieldset>
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="row">
+    <div class="column medium-4 center"> <a href="index.html"><img src="images/logo-stacked-reverse.png" alt="Responsive Web Design World Home"/></a>
+      <p><a href="register.html" class="button xl green">Register Now</a></p>
+    </div>
+    <div class="column medium-4">
+      <h2>Contact Us</h2>
+      <ul class="contactus-list">
+        <li><a href="mailto:conference@rwdworld.com">conference@rwdworld.com</a></li>
+        <li><a href="tel:8005557671">800 • 555 • 7671</a></li>
+      </ul>
+    </div>
+    <div class="column medium-4">
+      <h2>Other Good Stuff</h2>
+      <ul class="other-list">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Become a Speaker</a></li>
+        <li><a href="#">Other RWD World Events</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Sign up for our newsletter</a></li>
+      </ul>
+      <p class="socialmedia-icons"> <a href="#" title="Facebook"><i class="fa fa-facebook-square"></i></a> <a href="#" title="Instagram"><i class="fa fa-instagram"></i></a> <a href="#" title="Twitter"><i class="fa fa-twitter-square"></i></a> <a href="#" title="YouTube"><i class="fa fa-youtube-square"></i></a> </p>
+    </div>
+  </div>
+</footer>
+<script src="js/menu.js"></script>
+<script src="js/jquery.h5validate.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function () {
+		$('#form1').h5Validate({ errorClass:'error', validClass:'valid' });
+	});
+</script>
+</body>
+</html>

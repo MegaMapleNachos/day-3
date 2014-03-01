@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>jQuery Wookmark Plug-in Example</title>
+  <meta name="description" content="An very basic example of how to use the Wookmark jQuery plug-in.">
+  <meta name="author" content="Christoph Ono, Sebastian Helzle">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Global CSS for the page and tiles -->
+  <link rel="stylesheet" href="main.css">
+  <style>
+  img { max-width:100%; }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="container">
+    <header>
+      <h1>jQuery Wookmark Plug-in Example</h1>
+      <p>Resize the browser window to trigger layout updates.</p>
+    </header>
+    <div id="main" role="main">
+
+      <ul id="tiles">
+        <li><img src="images/7826bw.jpg" alt=""/><p>1</p></li>
+        <li><img src="images/7831.jpg"><p>2</p></li>
+        <li><img src="images/7852bw.jpg"><p>3</p></li>
+        <li><img src="images/7868.jpg"><p>4</p></li>
+        <li><img src="images/olivia.jpg"><p>5</p></li>
+        <li><img src="images/6748.jpg"><p>6</p></li>
+        <li><img src="images/Oscar_newborn-3mo.jpg"><p>7</p></li>
+        <li><img src="images/8369.jpg"><p>8</p></li>
+        <li><img src="images/8382a.jpg"><p>9</p></li>
+        <li><img src="images/4881.jpg"><p>10</p></li>
+        <li><img src="images/4900bw.jpg"><p>11</p></li>
+        <li><img src="images/4921bw.jpg"><p>12</p></li>
+        <li><img src="images/5000silver.jpg"><p>13</p></li>
+        <li><img src="images/5027silver.jpg"><p>14</p></li>
+        <li><img src="images/5051bw.jpg"><p>15</p></li>
+        <li><img src="images/5120.jpg"><p>16</p></li>
+        <li><img src="images/5197.jpg"><p>17</p></li>
+        <li><img src="images/5202.jpg"><p>18</p></li>
+        <li><img src="images/5219grey.jpg"><p>19</p></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="jquery.wookmark.js"></script>
+
+  <!-- Once the page is loaded, initalize the plug-in. -->
+  <script type="text/javascript">
+    (function ($){
+      var handler = $('#tiles li');
+
+      handler.wookmark({
+          // Prepare layout options.
+          autoResize: true, // This will auto-update the layout when the browser window is resized.
+          offset: 15, // Optional, the distance between grid items
+          outerOffset: 10, // Optional, the distance to the containers border
+          itemWidth: 250, // Optional, the width of a grid item 
+		  flexibleWidth:true
+      });
+    })(jQuery);
+  </script>
+
+</body>
+</html>
